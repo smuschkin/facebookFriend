@@ -192,7 +192,7 @@
                 </div>
                 <div class="modal-body">
                     <h2 id="match-name"></h2>
-                    <img id="match-img" src="http://www.brainlesstales.com/images/2012/Aug/new-friend.jpg" alt="friend match">
+                    <img id="match-img" src="https://www.dreadcentral.com/wp-content/uploads/2018/03/vampireclaybanner1-1200x627.jpg" width= "568px" alt="friend match">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -206,6 +206,8 @@
 
         $("#submit").on("click", function (event) {
             event.preventDefault();
+            $("#results-modal").modal("toggle");
+
 
             function validateForm() {
                 var isValid = true;
