@@ -9,7 +9,7 @@ module.exports = function (app) {
 
     app.post("/api/friends", function (req, res) {
         console.log("data received");
-        // var smallestDifference = 1000;
+
         var scoreDifferences = [];
         for (var i = 0; i < friends.length; i++) {
 
@@ -19,11 +19,6 @@ module.exports = function (app) {
                     - parseInt(req.body.scores[j])));
             }
             scoreDifferences.push(lowestScore);
-
-            // if (enemy <= smallestDifference) {
-            //     enemy = smallestDifference
-            // }
-
         }
         console.log(scoreDifferences);
         console.log(Math.min(...scoreDifferences));
@@ -32,8 +27,5 @@ module.exports = function (app) {
         res.json(friends[matchingScore]);
 
         friends.push(req.body);
-        // fs.writeFile with json file 
     });
-
-    // console.log(friends);
 };
