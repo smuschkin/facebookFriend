@@ -8,32 +8,32 @@ module.exports = function (app) {
     });
 
     app.post("/api/friends", function (req, res) {
-        var match = [50, 10];
-        var smallestDifference = 1000;
+        console.log("data received");
+        // var smallestDifference = 1000;
+        var scoreDifferences = [];
         for (var i = 0; i < friends.length; i++) {
-            
-            var enemy = 0;
+
+            var lowestScore = 0;
             for (var j = 0; j < req.body.scores.length; j++) {
-              (enemy += Math.abs(parseInt(friends[i].scores[i]) 
-              - parseInt(req.body.scores[i])));
+                (lowestScore += Math.abs(parseInt(friends[i].scores[j])
+                    - parseInt(req.body.scores[j])));
             }
-            if(enemy <= smallestDifference) {
-                enemy = smallestDifference
-            }
-            // res.body.scores
-                
-            }
-            return smallestDifference;
+            scoreDifferences.push(lowestScore);
 
-            friends.name[0].push(req.body.modal);
-            friends.name[1].push(req.body);
-            friends.name[2].push(req.body);
-            friends.name[3].push(req.body);
+            // if (enemy <= smallestDifference) {
+            //     enemy = smallestDifference
+            // }
 
+        }
+        console.log(scoreDifferences);
+        console.log(Math.min(...scoreDifferences));
 
+        var matchingScore = scoreDifferences.indexOf(Math.min(...scoreDifferences));
+        res.json(friends[matchingScore]);
 
-        
+        friends.push(req.body);
+        // fs.writeFile with json file 
     });
 
-    console.log(friends);
+    // console.log(friends);
 };

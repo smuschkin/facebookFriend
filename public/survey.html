@@ -206,8 +206,6 @@
 
         $("#submit").on("click", function (event) {
             event.preventDefault();
-            $("#results-modal").modal("toggle");
-
 
             function validateForm() {
                 var isValid = true;
@@ -227,6 +225,7 @@
             }
 
             if (validateForm()) {
+                console.log("Data is valid.");
                 var userData = {
                     name: $("#name").val(),
                     photo: $("#photo").val(),
@@ -245,7 +244,8 @@
                 };
 
                 $.post("/api/friends", userData, function (data) {
-
+                    console.log("data is posting.");
+                    console.log(data);
                     $("#match-name").text(data.name);
                     $("#match-img").attr("src", data.photo);
 
